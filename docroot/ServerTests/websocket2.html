@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>Simple Websocket Test</title>
+    <meta content='width=device-width, initial-scale=1' name='viewport'>
+    <link href='../stylesheets/application.css' rel='stylesheet'>
+  </head>
+  <body>
+
+<script>
+  
+if (document.location.protocol == 'https:'){
+  socket = new WebSocket("wss://127.0.0.1:2016/websocket");
+} else {
+  socket = new WebSocket("ws://127.0.0.1:2016/websocket");
+}
+
+socket.onopen = function() {
+  console.log('connected!');
+}
+socket.onmessage = function(e) {
+
+  console.log('>>>', e.data);
+
+}
+socket.onerror = function() {
+  console.log('error!');
+}
+
+
+</script>
+
+</body>
+</html> 
